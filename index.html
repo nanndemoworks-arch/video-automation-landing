@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定期動画を"考えずに回る仕組み"にします</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: white;
+      padding: 40px 30px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #222;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #4a90e2;
+      color: white;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #357abd;
+    }
+
+    /* Video Sections */
+    .section {
+      background: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: #222;
+      border-left: 4px solid #4a90e2;
+      padding-left: 15px;
+    }
+
+    .main-video {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .samples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .sample-video {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    /* Features & Target Audience */
+    .features-list,
+    .target-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .features-list li,
+    .target-list li {
+      padding: 12px 0;
+      padding-left: 30px;
+      position: relative;
+      border-bottom: 1px solid #eee;
+    }
+
+    .features-list li:last-child,
+    .target-list li:last-child {
+      border-bottom: none;
+    }
+
+    .features-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #4a90e2;
+      font-weight: bold;
+    }
+
+    .target-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #666;
+    }
+
+    /* Contact Section */
+    .contact-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #f0f0f0;
+      color: #333;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .contact-link:hover {
+      background: #e0e0e0;
+    }
+
+    /* Use Case Demos */
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .demo-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .demo-video {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .section h2 {
+        font-size: 1.2rem;
+      }
+
+      .samples-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-links {
+        flex-direction: column;
+      }
+
+      .contact-link {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>定期動画を"考えずに回る仕組み"にします</h1>
+      <p>テキスト・画像・音を組み合わせ、日次/週次で自動生成できる動画パイプラインを設計・実装します。</p>
+      <a href="#contact" class="cta-button">お問い合わせ</a>
+    </section>
+
+    <!-- Main Video -->
+    <section class="section">
+      <h2>実装サンプル</h2>
+      <video class="main-video" controls muted playsinline>
+        <source src="landing/main.mp4" type="video/mp4">
+        お使いのブラウザは動画タグに対応していません。
+      </video>
+    </section>
+
+    <!-- Sample Videos -->
+    <section class="section">
+      <h2>最新の出力例</h2>
+      <div class="samples-grid">
+        <video class="sample-video" controls muted playsinline>
+          <source src="landing/sample-1.mp4" type="video/mp4">
+          お使いのブラウザは動画タグに対応していません。
+        </video>
+        <video class="sample-video" controls muted playsinline>
+          <source src="landing/sample-2.mp4" type="video/mp4">
+          お使いのブラウザは動画タグに対応していません。
+        </video>
+        <video class="sample-video" controls muted playsinline>
+          <source src="landing/sample-3.mp4" type="video/mp4">
+          お使いのブラウザは動画タグに対応していません。
+        </video>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+      <h2>できること</h2>
+      <ul class="features-list">
+        <li>テキスト・画像・BGMを1本の動画に自動合成</li>
+        <li>日次/週次での定期生成（手作業を最小化）</li>
+        <li>世界観を保ったテンプレ化・運用</li>
+      </ul>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="section">
+      <h2>こんな人向け</h2>
+      <ul class="target-list">
+        <li>投稿が続かない</li>
+        <li>毎回ゼロから作るのがしんどい</li>
+        <li>世界観はあるが手が回らない</li>
+      </ul>
+    </section>
+
+    <!-- Use Case Demos -->
+    <section class="section">
+      <h2>用途別デモ</h2>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <h3>営業・説明用</h3>
+          <video class="demo-video" controls muted playsinline>
+            <source src="landing/sales.mp4" type="video/mp4">
+            お使いのブラウザは動画タグに対応していません。
+          </video>
+        </div>
+        <div class="demo-item">
+          <h3>空間演出・展示用</h3>
+          <video class="demo-video" controls muted playsinline>
+            <source src="landing/room.mp4" type="video/mp4">
+            お使いのブラウザは動画タグに対応していません。
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <h2>お問い合わせ</h2>
+      <div class="contact-links">
+        <a href="https://coconala.com/" class="contact-link" target="_blank">ココナラで相談</a>
+        <a href="https://linkedin.com/" class="contact-link" target="_blank">LinkedIn</a>
+        <a href="mailto:contact@example.com" class="contact-link">メールで問い合わせ</a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
